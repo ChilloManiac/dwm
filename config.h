@@ -101,6 +101,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+    { MODKEY,                       XK_w,      spawn,          SHCMD("firefox")}
 };
 
 /* button definitions */
