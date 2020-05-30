@@ -10,7 +10,7 @@ static const unsigned int gappov    = 40;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FontAwesome5FreeSolid:size=13","FiraCode:size=11"};
+static const char *fonts[]          = { "FontAwesome5FreeSolid:size=14","FiraCode:size=12"};
 static const char dmenufont[]       = "FiraCode:size=12";
 static const char col_bg[]          = "#282828";
 static const char col_fg[]          = "#ebddd2";
@@ -86,11 +86,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,           {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,       {0} },
 	{ MODKEY,                       XK_h,      setmfact,        {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,        {.f = +0.05} },
-    { MODKEY|ShiftMask,             XK_h,      incnmaster,      {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_l,      incnmaster,      {.i = -1 } },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
+	{ MODKEY,                       XK_l,      setmfact,        {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,            {0} },
 	{ MODKEY,                       XK_Tab,    view,            {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,      {0} },
@@ -112,7 +110,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                       8)
     { MODKEY,                       XK_w,      spawn,           SHCMD("firefox")},
     { MODKEY|ControlMask,           XK_q,      spawn,           SHCMD("dm-tool lock")},
-    { MODKEY,                       XK_c,      spawn,           SHCMD("code")},
 
     // Vanity Gaps
     { MODKEY,                       XK_comma,  incrgaps,        {.i = -5 } },
@@ -136,12 +133,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
-	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
