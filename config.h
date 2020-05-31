@@ -110,6 +110,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                       8)
     { MODKEY,                       XK_w,      spawn,           SHCMD("firefox")},
     { MODKEY|ControlMask,           XK_q,      spawn,           SHCMD("dm-tool lock")},
+    { MODKEY,                       XK_Down,   spawn,           SHCMD("cvolset.sh 0")},
+    { MODKEY,                       XK_Up,     spawn,           SHCMD("cvolset.sh 1")},
+    { MODKEY|ShiftMask,             XK_Down,   spawn,           SHCMD("cvolset.sh 2")},
+    { MODKEY|ShiftMask,             XK_Up,     spawn,           SHCMD("cvolset.sh 3")},
 
     // Vanity Gaps
     { MODKEY,                       XK_comma,  incrgaps,        {.i = -5 } },
