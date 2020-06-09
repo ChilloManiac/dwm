@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 40;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 20;       /* horiz outer gap between windows and screen edge */
@@ -32,11 +33,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance      title       tags mask     isfloating   monitor */
-  //{"firefox",     NULL,       NULL,       1 << 8,         0,          -1},
-    {"Thunderbird", NULL,       NULL,       1 << 8,         0,          -1},
-    {"Slack",       NULL,       NULL,       1 << 7,         0,          -1},
-    {"discord",     NULL,       NULL,       1 << 6,         0,          -1},
+	/* class            instance    title       tags mask     isfloating    isterminal  noswallow   monitor */
+    {"Thunderbird",     NULL,       NULL,       1 << 8,         0,          0,          0,          -1},
+    {"Slack",           NULL,       NULL,       1 << 7,         0,          0,          0,          -1},
+    {"discord",         NULL,       NULL,       1 << 6,         0,          0,          0,          -1},
+    {"Xfce4-terminal",  NULL,       NULL,       0,              0,          1,          -1,         -1}
 };
 
 /* layout(s) */

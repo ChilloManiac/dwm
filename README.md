@@ -6,6 +6,7 @@
 * Centered Master
 * Stacker
 * dwmblocks
+* Sticky
 
 ## Todos
 * Swallow
@@ -13,4 +14,4 @@
 * AttachSomewhereElse
 * Systray?
 * [Columns](https://dwm.suckless.org/patches/columns/)
-* Sticky
+* Xinema
