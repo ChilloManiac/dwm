@@ -77,7 +77,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg_alt, "-sb", col_fg, "-sf", col_brd, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg_alt, "-sb", col_fg, "-sf", col_brd, "-l", "10", NULL };
 static const char *termcmd[]  = { termToUse, NULL };
 
 static Key keys[] = {
@@ -86,9 +86,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,           {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,       {0} },
 	{ MODKEY,                       XK_h,      setmfact,        {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,        {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      incnmaster,     {.i = +1 } },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
-	{ MODKEY,                       XK_l,      setmfact,        {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,            {0} },
 	{ MODKEY,                       XK_Tab,    view,            {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,      {0} },
@@ -109,7 +111,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                       7)
 	TAGKEYS(                        XK_9,                       8)
     { MODKEY,                       XK_w,      spawn,           SHCMD("firefox")},
-    { MODKEY|ControlMask,           XK_q,      spawn,           SHCMD("dm-tool lock")},
+    { MODKEY,                       XK_c,      spawn,           SHCMD("code")},
+    { MODKEY|ControlMask,           XK_l,      spawn,           SHCMD("dm-tool lock")},
     { MODKEY,                       XK_Down,   spawn,           SHCMD("cvolset.sh 0")},
     { MODKEY,                       XK_Up,     spawn,           SHCMD("cvolset.sh 1")},
     { MODKEY|ShiftMask,             XK_Down,   spawn,           SHCMD("cvolset.sh 2")},

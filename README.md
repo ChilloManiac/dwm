@@ -5,7 +5,12 @@
 * [Actual Fullscreen](https://dwm.suckless.org/patches/actualfullscreen/dwm-actualfullscreen-20191112-cb3f58a.diff)
 * Centered Master
 * Stacker
+* dwmblocks
 
 ## Todos
 * Swallow
-* dwmblocks?
+* Statuscmd
+* AttachSomewhereElse
+* Systray?
+* [Columns](https://dwm.suckless.org/patches/columns/)
+* Sticky
