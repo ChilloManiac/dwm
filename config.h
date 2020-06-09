@@ -102,6 +102,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating,  {0} },
 	{ MODKEY,                       XK_0,      view,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,             {.ui = ~0 } },
+	{ MODKEY,                       XK_o,      focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_p,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_o,      tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_p,      tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                       0)
 	TAGKEYS(                        XK_2,                       1)
 	TAGKEYS(                        XK_3,                       2)

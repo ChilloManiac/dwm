@@ -7,9 +7,9 @@
 * Stacker
 * dwmblocks
 * Sticky
+* Swallow
 
 ## Todos
-* Swallow
 * Statuscmd
 * AttachSomewhereElse
 * Systray?
