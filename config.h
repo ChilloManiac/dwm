@@ -131,6 +131,9 @@ static Key keys[] = {
     // Fullscreen
 	{ MODKEY,                       XK_f,      togglefullscr,   {0} },
 
+    //Sticky    
+	{ MODKEY,                       XK_s,      togglesticky,   {0} },
+
 };
 
 /* button definitions */
