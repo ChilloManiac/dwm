@@ -3,6 +3,10 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 40;       /* vert inner gap between windows */
@@ -11,8 +15,8 @@ static const unsigned int gappov    = 40;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FontAwesome5FreeSolid:size=14","FiraCode:size=12"};
-static const char dmenufont[]       = "FiraCode:size=12";
+static const char *fonts[]          = { "FiraCodeNerdFont:size=13"};
+static const char dmenufont[]       = "FiraCodeNerdFont:size=13";
 static const char col_bg[]          = "#282828";
 static const char col_fg[]          = "#ebddd2";
 static const char col_brd[]         = "#fe8019";
@@ -26,7 +30,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { " ", " ", " ", " ", "阮 ", " ", "ﭮ ", "聆 ", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -37,7 +41,9 @@ static const Rule rules[] = {
     {"Thunderbird",     NULL,       NULL,       1 << 8,         0,          0,          0,          -1},
     {"Slack",           NULL,       NULL,       1 << 7,         0,          0,          0,          -1},
     {"discord",         NULL,       NULL,       1 << 6,         0,          0,          0,          -1},
-    {"Xfce4-terminal",  NULL,       NULL,       0,              0,          1,          -1,         -1}
+    {"Xfce4-terminal",  NULL,       NULL,       0,              0,          1,          -1,         -1},
+    {"Steam",           NULL,       NULL,       1 << 5,         0,          0,          0,          -1},
+    {"Spotify",         NULL,       NULL,       1 << 4,         0,          0,          0,          -1},
 };
 
 /* layout(s) */
