@@ -14,4 +14,4 @@
 * AttachSomewhereElse
 * Systray?
 * [Columns](https://dwm.suckless.org/patches/columns/)
-* Spotify controls
+* Xinema
