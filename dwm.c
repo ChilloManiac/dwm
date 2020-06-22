@@ -204,7 +204,7 @@ static void detachstack(Client *c);
 static Monitor *dirtomon(int dir);
 static void drawbar(Monitor *m);
 static void drawbars(void);
-static int drawstatusbar(Monitor *m, int bh, char* text);
+static int drawstatusbar(Monitor *m, int bh, char* text, int stw);
 static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static void focus(Client *c);
@@ -894,7 +894,7 @@ dirtomon(int dir)
 }
 
 int
-drawstatusbar(Monitor *m, int bh, char* stext) {
+drawstatusbar(Monitor *m, int bh, char* stext, int stw) {
 	int ret, i, w, x, len;
 	short isCode = 0;
 	char *text;
@@ -907,7 +907,7 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	memcpy(text, stext, len);
 
 	/* compute width of the status text */
-	w = 0;
+	w = stw;
 	i = -1;
 	while (text[++i]) {
 		if (text[i] == '^') {
@@ -1015,7 +1015,7 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
-		tw = m->ww - drawstatusbar(m, bh, stext) - stw;
+		tw = m->ww - drawstatusbar(m, bh, stext, stw) - stw;
 		//tw = TEXTW(stext) - lrpad / 2 + 2; /* 2px right padding */
 		//drw_text(drw, m->ww - tw - stw, 0, tw, bh, lrpad / 2 - 2, stext, 0);
 	}
