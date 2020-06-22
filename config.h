@@ -57,6 +57,7 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
+	{ "|||",      col },
 };
 
 /* key definitions */
@@ -102,6 +103,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,            {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,      {0} },
 	{ MODKEY,                       XK_t,      setlayout,       {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,       {.v = &layouts[4]} },
 	{ MODKEY,                       XK_y,      setlayout,       {.v = &layouts[1]} },
 	{ MODKEY,                       XK_u,      setlayout,       {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_u,      setlayout,       {.v = &layouts[3]} },

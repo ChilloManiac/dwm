@@ -8,10 +8,10 @@
 * dwmblocks
 * Sticky
 * Swallow
+* Systray?
+* [Columns](https://dwm.suckless.org/patches/columns/)
+* Xinema
 
 ## Todos
 * Statuscmd
 * AttachSomewhereElse
-* Systray?
-* [Columns](https://dwm.suckless.org/patches/columns/)
-* Xinema
