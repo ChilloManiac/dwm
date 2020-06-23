@@ -11,7 +11,8 @@
 * Systray?
 * [Columns](https://dwm.suckless.org/patches/columns/)
 * Xinema
+* Status2d
+* Statuscmd
 
 ## Todos
-* Statuscmd
 * AttachSomewhereElse
