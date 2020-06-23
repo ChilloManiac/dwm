@@ -44,6 +44,7 @@ static const Rule rules[] = {
     {"Xfce4-terminal",  NULL,       NULL,       0,              0,          1,          -1,         -1},
     {"Steam",           NULL,       NULL,       1 << 5,         0,          0,          0,          -1},
     {"Spotify",         NULL,       NULL,       1 << 4,         0,          0,          0,          -1},
+    {NULL,              NULL,       "gotop",    0,              1,          0,          -1,         -1},
 };
 
 /* layout(s) */
@@ -159,6 +160,8 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
+	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
+	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
