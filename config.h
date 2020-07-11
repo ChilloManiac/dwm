@@ -146,7 +146,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      togglefullscr,   {0} },
 
     //Sticky    
-	{ MODKEY,                       XK_s,      togglesticky,   {0} },
+	{ MODKEY,                       XK_s,      togglesticky,    {0} },
+
+    //Flameshot
+    { MODKEY|ShiftMask,             XK_s,      spawn,           SHCMD("flameshot gui")},
 
 };
 
