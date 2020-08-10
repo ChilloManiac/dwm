@@ -37,14 +37,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class            instance    title       tags mask     isfloating    isterminal  noswallow   monitor */
-    {"Thunderbird",     NULL,       NULL,       1 << 8,         0,          0,          0,          -1},
-    {"Slack",           NULL,       NULL,       1 << 7,         0,          0,          0,          -1},
-    {"discord",         NULL,       NULL,       1 << 6,         0,          0,          0,          -1},
-    {"Xfce4-terminal",  NULL,       NULL,       0,              0,          1,          -1,         -1},
-    {"Steam",           NULL,       NULL,       1 << 5,         0,          0,          0,          -1},
-    {"Spotify",         NULL,       NULL,       1 << 4,         0,          0,          0,          -1},
-    {NULL,              NULL,       "gotop",    0,              1,          0,          -1,         -1},
+	/* class            instance    title           tags mask     isfloating    isterminal  noswallow   monitor */
+    {"Thunderbird",     NULL,       NULL,           1 << 8,         0,          0,          0,          -1},
+    {"Slack",           NULL,       NULL,           1 << 7,         0,          0,          0,          -1},
+    {"discord",         NULL,       NULL,           1 << 6,         0,          0,          0,          -1},
+    {"Xfce4-terminal",  NULL,       NULL,           0,              0,          1,          -1,         -1},
+    {"Steam",           NULL,       NULL,           1 << 5,         0,          0,          0,          -1},
+    {"Spotify",         NULL,       NULL,           1 << 4,         0,          0,          0,          -1},
+    {NULL,              NULL,       "gotop",        0,              1,          0,          -1,         -1},
+    {NULL,              NULL,       "weather-tui",  0,              1,          0,          -1,         -1},
 };
 
 /* layout(s) */
@@ -131,6 +132,8 @@ static Key keys[] = {
     { MODKEY,                       XK_Up,     spawn,           SHCMD("cvolset.sh 1")},
     { MODKEY|ShiftMask,             XK_Down,   spawn,           SHCMD("cvolset.sh 2")},
     { MODKEY|ShiftMask,             XK_Up,     spawn,           SHCMD("cvolset.sh 3")},
+    { MODKEY|ShiftMask,             XK_w,      spawn,           SHCMD("dmenuwalls")},
+    { MODKEY,                       XK_g,      spawn,           SHCMD("game")},
 
     // Vanity Gaps
     { MODKEY,                       XK_comma,  incrgaps,        {.i = -5 } },
