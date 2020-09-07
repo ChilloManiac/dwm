@@ -17,16 +17,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCodeNerdFont:size=13"};
 static const char dmenufont[]       = "FiraCodeNerdFont:size=13";
-static const char col_bg[]          = "#282828";
-static const char col_fg[]          = "#ebddd2";
-static const char col_brd[]         = "#fe8019";
-static const char col_bg_alt[]      = "#1d2021";
-static const char col_fg_alt[]      = "#a89984";
-static const char col_brd_alt[]     = "#000000";
-static const char *colors[][3]      = {
-	/*               fg             bg              border   */
-	[SchemeNorm] = { col_fg,        col_bg,         col_brd_alt},
-	[SchemeSel]  = { col_fg_alt,    col_bg_alt,     col_brd},
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* tagging */
@@ -42,6 +42,7 @@ static const Rule rules[] = {
     {"Slack",           NULL,       NULL,           1 << 7,         0,          0,          0,          -1},
     {"discord",         NULL,       NULL,           1 << 6,         0,          0,          0,          -1},
     {"Xfce4-terminal",  NULL,       NULL,           0,              0,          1,          -1,         -1},
+    {"st",              NULL,       NULL,           0,              0,          1,          -1,         -1},
     {"Steam",           NULL,       NULL,           1 << 5,         0,          0,          0,          -1},
     {"Spotify",         NULL,       NULL,           1 << 4,         0,          0,          0,          -1},
     {NULL,              NULL,       "gotop",        0,              1,          0,          -1,         -1},
@@ -83,11 +84,11 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* My terminal */
-#define termToUse "xfce4-terminal"
+#define termToUse "st"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg_alt, "-sb", col_fg, "-sf", col_brd, "-l", "10", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", normbgcolor, "-l", "10", NULL };
 static const char *termcmd[]  = { termToUse, NULL };
 
 static Key keys[] = {
@@ -127,7 +128,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                       8)
     { MODKEY,                       XK_w,      spawn,           SHCMD("firefox")},
     { MODKEY,                       XK_c,      spawn,           SHCMD("code")},
-    { MODKEY|ControlMask,           XK_l,      spawn,           SHCMD("dm-tool lock")},
+    { MODKEY|ControlMask,           XK_l,      spawn,           SHCMD("systemctl suspend-then-hibernate")},
+    { MODKEY|ControlMask|ShiftMask, XK_l,      spawn,           SHCMD("systemctl hibernate")},
     { MODKEY,                       XK_Down,   spawn,           SHCMD("cvolset.sh 0")},
     { MODKEY,                       XK_Up,     spawn,           SHCMD("cvolset.sh 1")},
     { MODKEY|ShiftMask,             XK_Down,   spawn,           SHCMD("cvolset.sh 2")},
@@ -153,6 +155,9 @@ static Key keys[] = {
 
     //Flameshot
     { MODKEY|ShiftMask,             XK_s,      spawn,           SHCMD("flameshot gui")},
+
+    //xrdb
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 
 };
 
